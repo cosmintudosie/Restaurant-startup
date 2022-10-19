@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="app.css" />
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <ul class="links-list">
+        <li>
+          <a class="nav-link" id="" href="restaurant.html">Site<!-- --></a>
+        </li>
+      </ul>
+    </nav>
+    <div class="wrapper">
+      <div class="menu-container">
+        <h1>Meniu</h1>
+        <form
+          name="admin-form"
+          class="admin-form"
+          method="post"
+          enctype="multipart/form-data"
+          action="http://localhost:3000/formPost"
+        >
+          <div class="form-container">
+            <label for="category"> Categoria </label>
+            <input type="text" name="category" list="categories" />
+            <datalist class="category-options" id="categories">
+              <option id="soups">Ciorbe</option>
+              <option id="steaks">Fripturi</option>
+              <option id="pizzas">Pizza</option>
+              <option id="pasta">Paste</option>
+              <option id="sides">Garnituri</option>
+              <option id="salads">Salate</option>
+              <option id="deserts">Deserturi</option>
+            </datalist>
+            <label for="title"> Denumire </label>
+            <input type="text" name="title" />
+            <label for="image"> Fotografie </label>
+            <input type="file" name="image" />
+            <label type="number" for="price"> Pret </label
+            ><input name="price" />
+            <label for="ingredients"> Ingrediente </label>
+            <div>
+              <input type="text" name="ingredients" />
+              <button
+                class="small-button add-ingredient"
+                onclick="addNewIngredient()"
+                type="button"
+              >
+                +
+              </button>
+              <button
+                class="small-button rem-ingredient"
+                onclick="remNewIngredient(event)"
+                type="button"
+              >
+                -
+              </button>
+            </div>
+          </div>
+          <button type="submit" class="small-button">Adauga</button>
+        </form>
+        <div class="list-menu">
+          <div id="Ciorbe">Ciorbe</div>
+          <div id="Fripturi">Fripturi</div>
+          <div id="Pizza">Pizza</div>
+          <div id="Paste">Paste</div>
+          <div id="Garnituri">Garnituri</div>
+          <div id="Salate">Salate</div>
+          <div id="Deserturi">Deserturi</div>
+        </div>
+      </div>
+
+      <div class="orders">
+        <h1>Comenzi</h1>
+      </div>
+    </div>
+    <script src="admin.js" defer></script>
+  </body>
+</html>
