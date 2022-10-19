@@ -47,7 +47,7 @@ const populateMenu = function () {
   let requestOptions = {
     method: "GET",
   };
-  fetch(`http://localhost:3000/populate`, requestOptions)
+  fetch(`/populate`, requestOptions)
     .then((response) => response.json())
     .then((Obj) => {
       Obj.forEach((el) => {
@@ -57,7 +57,7 @@ const populateMenu = function () {
            <h1>${card.title}</h1>   
       <img 
       
-      src="../img/beefSoup.jpg" />
+      src=${card.imgSrc} />
           <ul>
             Ingrediente:
             ${card.ingredients}
@@ -261,9 +261,7 @@ cmdBtn.addEventListener("click", function (e) {
     },
     body: JSON.stringify(order),
   };
-  fetch(`http://localhost:3000/order`, requestOptions).then((response) =>
-    response.json()
-  );
+  fetch(`/order`, requestOptions).then((response) => response.json());
 });
 confirmBtn.addEventListener("click", () => {
   location.reload();

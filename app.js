@@ -33,15 +33,17 @@ const DB = process.env.DATABASE.replace(
 const url = process.env.DATABASE;
 let dbCatering;
 
-app.get("/", function (req, res) {
+app.get("/admin", function (req, res) {
   res.sendFile(path.join(__dirname, "public/admin.html"));
+});
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "public/restaurant.html"));
 });
 ////////--------FORM SUBMIT TO DATABASE------------
 
 app.post("/formPost", (req, res) => {
   const newForm = req.body;
 
-  console.log(newForm);
   ////////File upload/////////
   let image;
   let uploadPath;
@@ -62,7 +64,6 @@ app.post("/formPost", (req, res) => {
   newForm.daily = false;
   dbCatering.collection("menu").insertOne(newForm, function (err, res) {
     if (err) throw err;
-    console.log("1 document inserted");
   });
 
   res.sendFile(path.join(__dirname, "public/admin.html"));
@@ -95,12 +96,10 @@ app.delete("/deleteOrder", (req, res) => {
 app.patch("/updateItem", (req, res) => {
   let updateItem = { title: req.body.updateItem };
   let updatedValue = { $set: { daily: req.body.value } };
-  console.log(req.body.updateItem);
   dbCatering
     .collection("menu")
     .updateOne(updateItem, updatedValue, function (err, res) {
       if (err) throw err;
-      console.log(updateItem, updatedValue);
     });
   res.send("done");
 });
@@ -110,7 +109,6 @@ app.post("/order", (req, res) => {
 
   dbCatering.collection("orders").insertOne(newOrder, function (err, res) {
     if (err) throw err;
-    console.log("1 document inserted");
   });
 });
 

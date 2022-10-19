@@ -28,7 +28,7 @@ const populateMenu = function () {
   let requestOptions = {
     method: "GET",
   };
-  fetch(`http://localhost:3000/populate`, requestOptions)
+  fetch(`/populate`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
       // console.log(data);
@@ -66,9 +66,7 @@ const remItem = function (item) {
     },
     body: JSON.stringify(itemToDelete),
   };
-  fetch(`http://localhost:3000/deleteItem`, requestOptions).then((response) =>
-    location.reload()
-  );
+  fetch(`/deleteItem`, requestOptions).then((response) => location.reload());
 };
 
 ///ADD DAILY MENU
@@ -87,7 +85,7 @@ const addToDaily = function (item) {
     },
     body: JSON.stringify(itemToUpdate),
   };
-  fetch(`http://localhost:3000/updateItem`, requestOptions);
+  fetch(`/updateItem`, requestOptions);
   // .then((response) => response.json());
 };
 /////////ORDERS
@@ -95,7 +93,7 @@ const populateOrders = function () {
   let requestOptions = {
     method: "GET",
   };
-  fetch(`http://localhost:3000/orderList`, requestOptions)
+  fetch(`/orderList`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
       // console.log(data);
@@ -141,9 +139,7 @@ const remOrder = function (item) {
     },
     body: JSON.stringify(itemToDelete),
   };
-  fetch(`http://localhost:3000/deleteOrder`, requestOptions).then((response) =>
-    location.reload()
-  );
+  fetch(`/deleteOrder`, requestOptions).then((response) => location.reload());
   // .then((response) =>
   //   response.json()
   // );
