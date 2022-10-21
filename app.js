@@ -53,7 +53,7 @@ app.post("/formPost", (req, res) => {
   }
 
   image = req.files.image;
-  uploadPath = __dirname + "/img/" + image.name;
+  uploadPath = "img/" + image.name;
 
   image.mv(uploadPath, function (err) {
     if (err) return res.status(500).send(err);
