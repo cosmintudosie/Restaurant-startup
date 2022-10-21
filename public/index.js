@@ -57,7 +57,7 @@ const populateMenu = function () {
            <h1>${card.title}</h1>   
       <img 
       
-      src=${card.imgSrc} />
+      src="img/beefsoup.jpg" />
           <ul>
             Ingrediente:
             ${card.ingredients}

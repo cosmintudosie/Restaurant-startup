@@ -45,20 +45,20 @@ app.post("/formPost", (req, res) => {
   const newForm = req.body;
 
   ////////File upload/////////
-  let image;
-  let uploadPath;
+  // let image;
+  // let uploadPath;
 
-  if (!req.files || Object.keys(req.files).length === 0) {
-    return res.status(400).send("No files were uploaded or file too big.");
-  }
+  // if (!req.files || Object.keys(req.files).length === 0) {
+  //   return res.status(400).send("No files were uploaded or file too big.");
+  // }
 
-  image = req.files.image;
-  uploadPath = "img/" + image.name;
+  // image = req.files.image;
+  // uploadPath = "img/" + image.name;
 
-  image.mv(uploadPath, function (err) {
-    if (err) return res.status(500).send(err);
-  });
-  newForm.imgSrc = uploadPath;
+  // image.mv(uploadPath, function (err) {
+  //   if (err) return res.status(500).send(err);
+  // });
+  // newForm.imgSrc = uploadPath;
 
   ////DAILY MENU
   newForm.daily = false;
