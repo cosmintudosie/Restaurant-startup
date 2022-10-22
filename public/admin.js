@@ -37,11 +37,17 @@ const populateMenu = function () {
           <p>
             ${el.title} (Ingrediente: ${el.ingredients})....  ${el.price} RON
           </p>
-          <button class="small-button rem-dish" name="${el.title}" onclick="remItem(name)">X</button>
           <input type="checkbox" id="${el.title}" name="${el.title}" onclick="addToDaily(name)">
           <label for="daily"> Meniul Zilei</label>
-        </div>`;
+          </div>`;
 
+        // <button
+        //   class="small-button rem-dish"
+        //   name="${el.title}"
+        //   onclick="remItem(name)"
+        // >
+        //   X
+        // </button>;
         let category = document.getElementById(`${el.category}`);
 
         category.insertAdjacentHTML("beforeend", element);
